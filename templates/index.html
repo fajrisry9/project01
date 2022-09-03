@@ -15,6 +15,11 @@
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Custom File-->
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+    <title>My Diary</title>
+
     <script>
         $(document).ready(function () {
             listing();
@@ -29,15 +34,23 @@
                     for (let i = 0; i < articles.length; i++) {
                         let title = articles[i]["title"];
                         let content = articles[i]["content"];
+                        let file = articles[i]['file'] || 'default-image.jpg';
+                        let profile = articles[i]['profile'];
                         let temp_html = `
         <div class="col-4">
             <div class="card">
                 <img
-                src="../static/default-image.jpg"
+                src="../${file}"
                 class="card-img-top"
                 alt="..."
                 />
                     <div class="card-body">
+                        <img
+                        src="../${profile}"
+                        class="card-img-top"
+                        alt="..."
+                        id="profileicon"
+                        />
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${content}</p>
                         <h6 class="card-subtitle mb-2 text-muted">2022.02.14</h6>
@@ -62,10 +75,22 @@
                 return alert('Hey user, kamu lupa memasukkan deskripsi gambar')
             }
 
+            let file = $("#image").prop("files")[0];
+            let profile = $("#profile").prop("files")[0];
+
+            let form_data = new FormData();
+
+            form_data.append("file_give", file);
+            form_data.append("profile_give", profile);
+            form_data.append("title_give", title);
+            form_data.append("content_give", content);
+
             $.ajax({
                 type: "POST",
                 url: "/diary",
-                data: { title_give: title, content_give: content },
+                data: form_data,
+                contentType: false,
+                processData: false,
                 success: function (response) {
                     alert(response["msg"]);
                     window.location.reload();
@@ -75,8 +100,6 @@
 
     </script>
 
-    <title>My Diary</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
@@ -84,6 +107,12 @@
     <style>
         body {
             font-family: 'Signika Negative', sans-serif;
+        }
+
+        #profileicon {
+            border-radius: 50%;
+            max-width: 30%;
+            margin-bottom: 25px;
         }
     </style>
 </head>
@@ -93,8 +122,11 @@
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Personal Diary</h1>
-                <div class="mb-3">
-                    <input class="form-control" type="file" id="image" />
+                <div class="input-group mb-3 custom-file">
+                    <input type="file" class="form-control" id="image">
+                </div>
+                <div class="input-group mb-3 custom-file">
+                    <input type="file" class="form-control" id="profile">
                 </div>
                 <div class="mb-3">
                     <input type="text" class="form-control" id="image-title" placeholder="The title of your image" />
