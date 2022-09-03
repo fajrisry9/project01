@@ -33,7 +33,7 @@
         <div class="col-4">
             <div class="card">
                 <img
-                src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"
+                src="../static/default-image.jpg"
                 class="card-img-top"
                 alt="..."
                 />
@@ -50,16 +50,16 @@
                 },
             });
         }
-        
+
 
         function posting() {
             let title = $("#image-title").val();
             if (!title) {
-                return alert ('Hey user, kamu lupa memasukkan judul')
+                return alert('Hey user, kamu lupa memasukkan judul')
             }
             let content = $("#image-description").val();
             if (!content) {
-                return alert ('Hey user, kamu lupa memasukkan deskripsi gambar')
+                return alert('Hey user, kamu lupa memasukkan deskripsi gambar')
             }
 
             $.ajax({
@@ -107,62 +107,6 @@
             </div>
         </div>
         <div class="row justify-content-start" id="cards-box">
-            <div class="col-4">
-                <div class="card">
-                    <img src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">2022.02.15</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">2022.02.15</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">2022.02.15</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">2022.02.14</h6>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
