@@ -34,6 +34,8 @@ def save_diary():
     profilename = f'static/profile-{mytime}.{extension}'
     profile.save(profilename)
 
+    post_time = 
+
     doc = {
         'file':filename,
         'profile':profilename,
