@@ -40,6 +40,7 @@
                         let title = articles[i]["title"];
                         let content = articles[i]["content"];
                         let file = articles[i]['file'] || 'default-image.jpg';
+                        let time = articles[i]['time'] || '??:?? ??/??/????';
                         let profile = articles[i]['profile'];
                         let temp_html = `
         <div class="col-4">
@@ -58,7 +59,7 @@
                         />
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${content}</p>
-                        <h6 class="card-subtitle mb-2 text-muted">2022.02.14</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">${time}</h6>
                     </div>
             </div>
         </div>
@@ -119,6 +120,7 @@
             max-width: 30%;
             margin-bottom: 25px;
         }
+
     </style>
 </head>
 
