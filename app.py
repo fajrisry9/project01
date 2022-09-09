@@ -34,7 +34,7 @@ def save_diary():
     profilename = f'static/profile-{mytime}.{extension}'
     profile.save(profilename)
 
-    time = today.strftime ('%H:%M %d/%b/%Y')
+    time = today.strftime ('%d/%b/%Y')
 
     doc = {
         'file':filename,
